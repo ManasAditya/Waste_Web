@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Customizable To-Do List - Login</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* your existing styles */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(
+          135deg,
+          #0a0a0a,
+          #1cc4c4,
+          #040404,
+          #23828d,
+          #15c1d4,
+          #1cc4c4
+        );
+        background-size: 400% 400%;
+        animation: gradientBG 35s ease infinite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        padding: 20px;
+      }
+
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .safety-logo {
+        color: white;
+        font-size: 28px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+      }
+
+      .safety-logo span {
+        background: rgba(98, 74, 217, 0.7);
+        padding: 8px 15px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .safety-logo i {
+        margin-right: 10px;
+        color: #4060ff;
+        font-size: 32px;
+      }
+
+      .container {
+        background-color: #0c0c0c;
+        border-radius: 10px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+          0 10px 10px rgba(0, 0, 0, 0.22);
+        position: relative;
+        overflow: hidden;
+        width: 768px;
+        max-width: 100%;
+        min-height: 480px;
+      }
+
+      .form-container {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        transition: all 0.6s ease-in-out;
+      }
+
+      .sign-in-container {
+        left: 0;
+        width: 50%;
+        z-index: 2;
+      }
+
+      .sign-up-container {
+        left: 0;
+        width: 50%;
+        opacity: 0;
+        z-index: 1;
+      }
+
+      .container.right-panel-active .sign-in-container {
+        transform: translateX(100%);
+      }
+
+      .container.right-panel-active .sign-up-container {
+        transform: translateX(100%);
+        opacity: 1;
+        z-index: 5;
+        animation: show 0.6s;
+      }
+
+      @keyframes show {
+        0%,
+        49.99% {
+          opacity: 0;
+          z-index: 1;
+        }
+
+        50%,
+        100% {
+          opacity: 1;
+          z-index: 5;
+        }
+      }
+
+      form {
+        background-color: #030303;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 50px;
+        height: 100%;
+        text-align: center;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        color: #b3b8bd;
+      }
+
+      input {
+        background-color: #323131;
+        border: none;
+        padding: 12px 15px;
+        margin: 8px 0;
+        width: 100%;
+        border-radius: 5px;
+      }
+
+      button {
+        border-radius: 20px;
+        border: 1px solid #030303;
+        background-color: #1cc4c4;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 12px 45px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+
+      button:active {
+        transform: scale(0.95);
+      }
+
+      button.ghost {
+        background-color: transparent;
+        border-color: #fcf9f9;
+      }
+
+      .overlay-container {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        transition: transform 0.6s ease-in-out;
+        z-index: 100;
+      }
+
+      .container.right-panel-active .overlay-container {
+        transform: translateX(-100%);
+      }
+
+      .overlay {
+        background: #01a9f1;
+        background: linear-gradient(to top, #0de4cf, #0d0d0d) no-repeat 0 0 / cover;
+        color: #fdfcfc;
+        position: relative;
+        left: -100%;
+        height: 100%;
+        width: 200%;
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+      }
+
+      .container.right-panel-active .overlay {
+        transform: translateX(50%);
+      }
+
+      .overlay-panel {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 40px;
+        text-align: center;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+      }
+
+      .overlay-left {
+        transform: translateX(-20%);
+      }
+
+      .overlay-right {
+        right: 0;
+        transform: translateX(0);
+      }
+
+      .container.right-panel-active .overlay-left {
+        transform: translateX(0);
+      }
+
+      .container.right-panel-active .overlay-right {
+        transform: translateX(20%);
+      }
+
+      .footer {
+        margin-top: 30px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 12px;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          width: 100%;
+        }
+
+        .form-container {
+          width: 100%;
+        }
+
+        .overlay-container {
+          display: none;
+        }
+
+        .sign-in-container,
+        .sign-up-container {
+          width: 100%;
+        }
+
+        .container.right-panel-active .sign-in-container,
+        .container.right-panel-active .sign-up-container {
+          transform: translateX(0);
+        }
+      }
+      
+    </style>
+</head>
+<body>
+  <div class="container" id="container">
+    <!-- Sign Up Form -->
+    <div class="form-container sign-up-container">
+      <form id="signup-form">
+        <h1>Create Account</h1>
+        <input type="text" id="signup-name" placeholder="Name" required />
+        <input type="email" id="signup-email" placeholder="Email" required />
+        <input
+          type="password"
+          id="signup-password"
+          placeholder="Password"
+          required
+        />
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+
+    <!-- Sign In Form -->
+    <div class="form-container sign-in-container">
+      <form id="login-form">
+        <h1>Sign in</h1>
+        <input type="email" id="login-email" placeholder="Email" required />
+        <input
+          type="password"
+          id="login-password"
+          placeholder="Password"
+          required
+        />
+        <button type="submit">Sign In</button>
+      </form>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Welcome Back!</h1>
+          <p>Get Ready, please login with your personal info;</p>
+          <button class="ghost" id="signIn">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>CARS GARAGE</h1>
+          <p>Get ready for some fun!! </p>
+          <button class="ghost" id="signUp">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>© 2025 CARS GARAGE. All rights reserved.</p>
+  </div>
+
+  <script>
+    // DOM Elements
+    const signUpButton = document.getElementById("signUp");
+    const signInButton = document.getElementById("signIn");
+    const container = document.getElementById("container");
+    const loginForm = document.getElementById("login-form");
+    const signupForm = document.getElementById("signup-form");
+
+    // Event Listeners
+    signUpButton.addEventListener("click", () => {
+      container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener("click", () => {
+      container.classList.remove("right-panel-active");
+    });
+
+    // Form Submission
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
+
+      // Simple validation
+      if (!email || !password) {
+        alert("Please fill in all fields");
+        return;
+      }
+
+      if (!isValidEmail(email)) {
+        alert("Please enter a valid email address");
+        return;
+      }
+
+      // Simulate login process
+      simulateLogin();
+    });
+
+    signupForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("signup-name").value;
+      const email = document.getElementById("signup-email").value;
+      const password = document.getElementById("signup-password").value;
+
+      // Simple validation
+      if (!name || !email || !password) {
+        alert("Please fill in all fields");
+        return;
+      }
+
+      if (!isValidEmail(email)) {
+        alert("Please enter a valid email address");
+        return;
+      }
+
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters");
+        return;
+      }
+
+      // Simulate signup process
+      simulateSignup();
+    });
+
+    // Helper functions
+    function isValidEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    function simulateLogin() {
+      // Simulate API call delay
+      setTimeout(() => {
+        alert("Login successful! 1 2 3");
+        // Redirect to your dashboard page after login
+        window.location.href = "index.html";
+      }, 1000);
+    }
+
+    function simulateSignup() {
+      // Simulate API call delay
+      setTimeout(() => {
+        alert(
+          "Account created successfully! Please check your email to verify your account."
+        );
+        container.classList.remove("right-panel-active");
+        signupForm.reset();
+        // Redirect to your dashboard page after signup
+        window.location.href = "index.html";
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoWaste - Contact</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Animated gradient background */
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(
+      135deg,
+      #0a0a0a,
+      #1cc4c4,
+      #040404,
+      #23828d,
+      #15c1d4,
+      #1cc4c4
+    );
+    background-size: 400% 400%;
+    animation: gradientBG 35s ease infinite;
+    color: white;
+  }
+
+  .overlay-bg {
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  input, select, textarea, button {
+    outline: none;
+  }
+
+  input, select, textarea {
+    background-color: #0c0c0c;
+    color: white;
+    border: 1px solid #1cc4c4;
+    border-radius: 6px;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: #b3b8bd;
+  }
+
+  button {
+    background-color: #1cc4c4;
+    color: #0c0c0c;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: transform 0.2s, background-color 0.2s;
+  }
+
+  button:hover {
+    background-color: #15c1d4;
+    transform: scale(1.05);
+  }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="p-6 shadow-lg sticky top-0 z-50 overlay-bg">
+  <div class="container mx-auto flex justify-between items-center text-white">
+    <h1 class="text-2xl font-bold">EcoWaste</h1>
+    <ul class="flex gap-6">
+        <li><a href="index.html" class="hover:text-yellow-300 transition-colors duration-300">Home</a></li>
+        <li><a href="about.html" class="hover:text-yellow-300 transition-colors duration-300">About</a></li>
+        <li><a href="contact.html" class="hover:text-yellow-300 transition-colors duration-300">Contact</a></li>
+        <li><a href="thankyou.html" class="hover:text-yellow-300 transition-colors duration-300">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Contact Form Section -->
+<section class="py-16 px-4">
+  <div class="overlay-bg p-8 rounded-lg max-w-3xl mx-auto">
+    <h2 class="text-4xl font-bold mb-6">Request a Pickup / Contact Us</h2>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="flex flex-col gap-4">
+        <input type="text" name="name" placeholder="Full Name" required class="p-3">
+        <input type="email" name="email" placeholder="Email" required class="p-3">
+        <select name="pickup_type" required class="p-3">
+            <option value="">Select Pickup Type</option>
+            <option value="residential">Residential Waste</option>
+            <option value="industrial">Industrial Waste</option>
+            <option value="recycling">Recyclable Material</option>
+        </select>
+        <textarea name="message" placeholder="Additional Instructions" rows="4" class="p-3"></textarea>
+        <button type="submit" class="py-3 mt-2">Send Message</button>
+    </form>
+  </div>
+
+  <!-- Google Map -->
+  <div class="max-w-3xl mx-auto mt-12 rounded overflow-hidden shadow-lg">
+    <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-white text-center p-6 overlay-bg mt-10">
+    <p>&copy; 2025 EcoWaste | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoWaste - About</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Animated gradient background */
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(
+      135deg,
+      #0a0a0a,
+      #1cc4c4,
+      #040404,
+      #23828d,
+      #15c1d4,
+      #1cc4c4
+    );
+    background-size: 400% 400%;
+    animation: gradientBG 35s ease infinite;
+    color: white;
+  }
+
+  .overlay-bg {
+    background-color: rgba(0,0,0,0.4);
+  }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="p-6 shadow-lg sticky top-0 z-50 overlay-bg">
+  <div class="container mx-auto flex justify-between items-center text-white">
+    <h1 class="text-2xl font-bold">EcoWaste</h1>
+    <ul class="flex gap-6">
+        <li><a href="index.html" class="hover:text-yellow-300 transition-colors duration-300">Home</a></li>
+        <li><a href="about.html" class="hover:text-yellow-300 transition-colors duration-300">About</a></li>
+        <li><a href="contact.html" class="hover:text-yellow-300 transition-colors duration-300">Contact</a></li>
+        <li><a href="thankyou.html" class="hover:text-yellow-300 transition-colors duration-300">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- About Section -->
+<section class="py-16 text-center px-4">
+  <div class="overlay-bg p-8 rounded-lg max-w-4xl mx-auto">
+    <h2 class="text-4xl font-bold mb-6">About EcoWaste</h2>
+    <p class="text-lg">
+      EcoWaste provides expert waste collection, recycling services, and eco-friendly disposal solutions for businesses and households. We reduce landfill waste and promote sustainability.
+    </p>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section class="py-16 text-center">
+  <h2 class="text-4xl font-bold mb-10">Meet Our Team</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="bg-white p-6 rounded-lg shadow-lg hover:scale-105 transform transition-transform duration-300">
+          <img src="assets/images/team1.jpg" class="w-full h-48 object-cover rounded mb-4">
+          <h3 class="text-xl font-bold text-green-700">Emily Foster</h3>
+          <p>Operations Manager</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-lg hover:scale-105 transform transition-transform duration-300">
+          <img src="assets/images/team2.jpg" class="w-full h-48 object-cover rounded mb-4">
+          <h3 class="text-xl font-bold text-green-700">Michael Reed</h3>
+          <p>Recycling Specialist</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-lg hover:scale-105 transform transition-transform duration-300">
+          <img src="assets/images/team3.jpg" class="w-full h-48 object-cover rounded mb-4">
+          <h3 class="text-xl font-bold text-green-700">Sarah Hill</h3>
+          <p>Environmental Engineer</p>
+      </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-white text-center p-6 overlay-bg mt-10">
+    <p>&copy; 2025 EcoWaste | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

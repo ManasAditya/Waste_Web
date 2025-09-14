@@ -1,0 +1,78 @@
+/* Global */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #d1fae5; /* soft green bg like login */
+    margin: 0;
+    padding: 0;
+}
+
+h1,h2,h3,h4,h5 {
+    color: #065f46; /* dark green headers */
+}
+
+p {
+    color: #065f46;
+}
+
+/* Navbar */
+nav {
+    background-color: #10b981; /* green like login */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+nav a {
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #fcd34d; /* yellow hover */
+    transform: scale(1.1);
+}
+
+/* Card style for sections */
+.card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Buttons */
+button,a.btn {
+    background-color: #10b981;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+button:hover, a.btn:hover {
+    background-color: #059669;
+    transform: scale(1.05);
+}
+
+/* Form inputs */
+input, select, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #d1fae5;
+    margin-bottom: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #10b981;
+    box-shadow: 0 0 5px rgba(16,185,129,0.5);
+}

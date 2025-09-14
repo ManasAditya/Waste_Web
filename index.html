@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoWaste - Home</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Animated gradient background for the whole page */
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0a0a0a, #1cc4c4, #040404, #23828d, #15c1d4, #1cc4c4);
+    background-size: 400% 400%;
+    animation: gradientBG 35s ease infinite;
+    color: white;
+    overflow-x: hidden;
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+  }
+
+  .hero video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.4);
+    padding: 2rem;
+    border-radius: 0.5rem;
+  }
+
+  h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px #1cc4c4, 0 0 20px #15c1d4;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+    color: #b3b8bd;
+  }
+
+  /* Cards for services and why choose us */
+  .card {
+    background-color: rgba(255,255,255,0.95);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  nav {
+    background: linear-gradient(to right, #0d3c6a, #0dc1b8);
+  }
+
+  nav a:hover {
+    color: #15c1d4;
+  }
+
+  footer {
+    background: linear-gradient(to right, #0d3c6a, #0dc1b8);
+  }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="p-6 shadow-lg sticky top-0 z-50 overlay-bg">
+
+<div class="container mx-auto flex justify-between items-center text-white">
+    <h1 class="text-2xl font-bold">EcoWaste</h1>
+    <ul class="flex gap-6">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="thankyou.html">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero Section with Background Video -->
+<section class="hero">
+  <video autoplay muted loop>
+    <source src="1943483-uhd_3840_2160_25fps.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="hero-content">
+    <h1>Clean Earth, Better Future</h1>
+    <p>Professional Waste Management Solutions</p>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="py-16 text-center relative z-10">
+  <h2 class="text-4xl font-bold mb-10 text-white">Our Services</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <div class="card hover:scale-105 transform transition-transform duration-300">
+      <img src="assets/images/residential.jpg" class="w-full h-48 object-cover mb-4 rounded">
+      <h3 class="text-xl font-bold mb-2 text-green-700">Residential Pickup</h3>
+      <p>Scheduled garbage collection for homes with reliable service.</p>
+    </div>
+    <div class="card hover:scale-105 transform transition-transform duration-300">
+      <img src="assets/images/industrial.jpg" class="w-full h-48 object-cover mb-4 rounded">
+      <h3 class="text-xl font-bold mb-2 text-green-700">Industrial Waste</h3>
+      <p>Certified disposal of industrial waste with environmental compliance.</p>
+    </div>
+    <div class="card hover:scale-105 transform transition-transform duration-300">
+      <img src="assets/images/recycling.jpg" class="w-full h-48 object-cover mb-4 rounded">
+      <h3 class="text-xl font-bold mb-2 text-green-700">Recycling Solutions</h3>
+      <p>Innovative programs for material recycling to reduce waste footprint.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-16 text-center">
+  <h2 class="text-4xl font-bold mb-10 text-white">Why Choose Us?</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="p-6 bg-white rounded shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <h3 class="text-xl font-bold mb-2 text-green-700">✅ Fast Pickup</h3>
+          <p>Get your waste collected quickly and efficiently.</p>
+      </div>
+      <div class="p-6 bg-white rounded shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <h3 class="text-xl font-bold mb-2 text-green-700">✅ Eco Friendly</h3>
+          <p>We follow environmentally safe disposal and recycling methods.</p>
+      </div>
+      <div class="p-6 bg-white rounded shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <h3 class="text-xl font-bold mb-2 text-green-700">✅ Expert Team</h3>
+          <p>Professional staff ensures reliable waste management services.</p>
+      </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-white text-center p-6 overlay-bg mt-10">
+    <p>&copy; 2025 EcoWaste | All Rights Reserved</p>
+</footer>
+
+
+</body>
+</html>
