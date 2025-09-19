@@ -26,7 +26,7 @@ Simply open the `index.html` file in any modern web browser to view the website.
 ## 📸 Screenshots
 
 
-![Uploading Screenshot 2025-09-19 at 10.53.46 PM.png…]()
+<img width="1470" height="956" alt="Image" src="https://github.com/user-attachments/assets/35d3f14e-be94-49f9-a6e1-8cd346d5c8dc" />
 
 
 
